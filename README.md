@@ -2,7 +2,7 @@
 
 ## Description
 
-Three roles: buildwar, common, tomcat
+Playbook has three roles: buildwar, common, tomcat
 
 ## Run
 
