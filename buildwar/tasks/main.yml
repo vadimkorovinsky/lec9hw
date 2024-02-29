@@ -1,0 +1,29 @@
+---
+# Download project, build war, deploy on tomcat server
+- name: install packages
+  apt: name={{item}} state=present update_cache=yes
+  with_items:
+       - git
+       - maven
+
+- name: Download project
+  git:
+    repo: '{{ project_git_path }}'
+    dest: '{{ project_dest_folder }}'
+
+- name: Run mvn clean in work folder
+  shell:
+    cmd: mvn clean package
+    chdir: '{{ project_dest_folder }}'
+  notify:
+  - On war complete
+
+- name: Synchronize work folder on dev host with webapps folder on prod host
+  synchronize:
+    mode: pull
+    dirs: no
+    src: '{{ project_dest_folder }}/target/'
+    dest: '{{ tomcat_apps_folder }}/'
+    rsync_opts: "{{ rsync_opts }}"
+  delegate_to: '{{ target_host }}'
+

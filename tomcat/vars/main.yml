@@ -1,0 +1,4 @@
+---
+# vars file for deploywar
+tomcat_apps_folder: /var/lib/tomcat9/webapps
+war_name: hello-1.0.war

@@ -1,0 +1,16 @@
+---
+- name: Download project and build war
+  hosts: build
+  become: yes
+
+  roles:
+   - common
+   - buildwar
+
+- name: Install Tomcat
+  hosts: deploy
+  become: yes
+
+  roles:
+   - common
+   - tomcat

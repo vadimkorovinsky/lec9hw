@@ -1,0 +1,5 @@
+---
+# handlers file for makewar
+- name: On war complete
+  debug:
+    msg: On war complete handler

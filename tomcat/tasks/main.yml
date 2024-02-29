@@ -1,0 +1,10 @@
+---
+# tasks file for deploywar
+- name: Install tomcat
+  apt:
+    name: tomcat9
+    state: present
+    update_cache: yes
+  notify:
+  - On tomcat installed
+

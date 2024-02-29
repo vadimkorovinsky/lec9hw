@@ -1,0 +1,5 @@
+---
+# handlers file for deploywar
+- name: On tomcat installed
+  debug:
+    msg: On tomcat installed handler

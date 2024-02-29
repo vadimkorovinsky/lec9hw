@@ -1,0 +1,13 @@
+---
+# vars file for makewar
+project_git_path: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+project_dest_folder: /work/project
+tomcat_apps_folder: /var/lib/tomcat9/webapps
+target_host: "{{ groups['deploy'][0] }}"
+war_name: hello-1.0.war
+rsync_opts:
+  - "--exclude=classes"
+  - "--exclude=generated-sources"
+  - "--exclude=maven-archiver"
+  - "--exclude=maven-status"
+  - "--exclude=hello-1.0"
